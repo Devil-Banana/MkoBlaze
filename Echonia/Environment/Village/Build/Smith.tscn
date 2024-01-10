@@ -1,0 +1,316 @@
+[gd_scene load_steps=26 format=3 uid="uid://desw0xndrsb2u"]
+
+[ext_resource type="Script" path="res://Environment/Village/Build/BuildStructure.gd" id="1_8s0wm"]
+[ext_resource type="Texture2D" uid="uid://dwru4sggifiy6" path="res://Environment/Village.png" id="1_ws7nj"]
+[ext_resource type="Resource" uid="uid://ckche2w2ns158" path="res://Scripts/Inventory/Resources/Wood.tres" id="2_n2axu"]
+[ext_resource type="Resource" uid="uid://da7ub0jrtxhq4" path="res://Scripts/Inventory/Resources/Stone.tres" id="3_2tikj"]
+[ext_resource type="Resource" uid="uid://c42ng2n2galhd" path="res://Scripts/Inventory/Resources/Coin.tres" id="4_oke6o"]
+[ext_resource type="LabelSettings" uid="uid://co3mrbvbm3of6" path="res://Scripts/Interact/InteractFont.tres" id="5_a8hqp"]
+[ext_resource type="Texture2D" uid="uid://cjxrw6ayibbex" path="res://Entity/Sprites/Entity.png" id="6_khnd1"]
+[ext_resource type="FontFile" uid="uid://c7e1n7mxhg6j7" path="res://Fonts/OldTime/Oldtimer.ttf" id="8_4mjny"]
+[ext_resource type="Script" path="res://Environment/Village/Build/Smith/Equip_Level_UP.gd" id="9_d6wj1"]
+[ext_resource type="Texture2D" uid="uid://c7jci1pv0knbm" path="res://HandTool/Sword/Texture/slice12.png" id="9_f4bg6"]
+[ext_resource type="Texture2D" uid="uid://hek6uim87shn" path="res://HandTool/Sword/Texture/slice11.png" id="11_sfn3q"]
+[ext_resource type="Texture2D" uid="uid://bawux3focgl1m" path="res://HandTool/Textures/AxeLvl1.png" id="11_vrb1e"]
+[ext_resource type="Texture2D" uid="uid://tvhn0tkjhpho" path="res://HandTool/Sword/Texture/slice13.png" id="12_7ows2"]
+[ext_resource type="Texture2D" uid="uid://cepnafss0638b" path="res://HandTool/Sword/Texture/slice14.png" id="13_5iuha"]
+[ext_resource type="Texture2D" uid="uid://bf5oub4ghftf2" path="res://HandTool/Textures/AxeLvl2.png" id="15_61n5s"]
+[ext_resource type="Texture2D" uid="uid://6ibajfcg1bq8" path="res://HandTool/Textures/AxeLvl3.png" id="16_uf2kp"]
+[ext_resource type="Texture2D" uid="uid://b4kbhdi2jj07p" path="res://HandTool/Textures/AxeLvl10.png" id="17_nokh5"]
+[ext_resource type="AudioStream" uid="uid://dyuypbk5q2w2y" path="res://Sound/Coins/Sell.wav" id="18_75yt8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsqc8"]
+size = Vector2(699, 86)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n77ss"]
+size = Vector2(55, 85)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0lxu4"]
+size = Vector2(1172, 258)
+
+[sub_resource type="Animation" id="Animation_b0mgo"]
+resource_name = "Character"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Leg:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 47), Vector2(0, 47)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Leg:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 32.1584), Vector2(0, 32.1584)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0384842, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Head:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 6.15843), Vector2(0, 6.15843)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Head:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0727371, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3tuh2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -26)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 26.1584)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fo657"]
+_data = {
+"Character": SubResource("Animation_b0mgo"),
+"RESET": SubResource("Animation_3tuh2")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_jigwp"]
+font = ExtResource("8_4mjny")
+font_size = 50
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.65098)
+
+[node name="BuildStructure" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_8s0wm")
+wood = ExtResource("2_n2axu")
+stone = ExtResource("3_2tikj")
+BuildColor = Color(1, 1, 1, 1)
+coins = ExtResource("4_oke6o")
+
+[node name="Build" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Sprite" type="Sprite2D" parent="Build"]
+self_modulate = Color(0.745098, 0.745098, 0.745098, 0.298039)
+position = Vector2(3, -96)
+texture = ExtResource("1_ws7nj")
+offset = Vector2(-3, -90)
+region_enabled = true
+region_rect = Rect2(63, 786, 1080, 377)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Build"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Build/StaticBody2D"]
+position = Vector2(200.5, -41)
+shape = SubResource("RectangleShape2D_hsqc8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Build/StaticBody2D"]
+position = Vector2(-510.5, -42.5)
+shape = SubResource("RectangleShape2D_n77ss")
+
+[node name="ShowRsc" type="Node2D" parent="."]
+visible = false
+z_index = 1
+
+[node name="Label" type="Label" parent="ShowRsc"]
+offset_left = -206.0
+offset_top = -350.0
+offset_right = 181.0
+offset_bottom = -221.0
+theme_override_font_sizes/font_size = 36
+text = "[E] Կառուցել
+
+Փայտ X 20  |  Քար 10 
+"
+label_settings = ExtResource("5_a8hqp")
+horizontal_alignment = 1
+
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+position = Vector2(0, -44)
+shape = SubResource("RectangleShape2D_0lxu4")
+
+[node name="Builded" type="Node2D" parent="."]
+visible = false
+y_sort_enabled = true
+
+[node name="Character" type="Node2D" parent="Builded"]
+y_sort_enabled = true
+position = Vector2(150, 7)
+scale = Vector2(-1, 1)
+
+[node name="Body" type="Sprite2D" parent="Builded/Character"]
+position = Vector2(0, 26.1584)
+texture = ExtResource("6_khnd1")
+region_enabled = true
+region_rect = Rect2(643, 166, 68, 62)
+
+[node name="Head" type="Sprite2D" parent="Builded/Character"]
+z_index = 1
+position = Vector2(0, -26)
+texture = ExtResource("6_khnd1")
+offset = Vector2(1.34637, -38.6584)
+region_enabled = true
+region_rect = Rect2(626, 65, 101, 91)
+
+[node name="Leg" type="Sprite2D" parent="Builded/Character"]
+z_index = -1
+position = Vector2(0, 47)
+texture = ExtResource("6_khnd1")
+offset = Vector2(0.402527, 30.755)
+region_enabled = true
+region_rect = Rect2(643, 244, 61, 62)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Builded/Character"]
+libraries = {
+"": SubResource("AnimationLibrary_fo657")
+}
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+visible = false
+
+[node name="Panel" type="Panel" parent="Control/CanvasLayer"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -387.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(158, 138)
+
+[node name="Label" type="Label" parent="Control/CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 84.0
+offset_bottom = 141.0
+grow_horizontal = 2
+text = "ԴԱՐԲԻՆ"
+label_settings = SubResource("LabelSettings_jigwp")
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Control/CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 216.0
+offset_right = 362.0
+offset_bottom = 512.0
+theme_override_constants/h_separation = 100
+columns = 2
+
+[node name="Equip_level_up" type="Button" parent="Control/CanvasLayer/Panel/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_4mjny")
+text = "hzoracnel"
+icon = ExtResource("11_sfn3q")
+icon_alignment = 1
+vertical_icon_alignment = 0
+script = ExtResource("9_d6wj1")
+textures = Array[Texture2D]([ExtResource("9_f4bg6"), ExtResource("11_sfn3q"), ExtResource("12_7ows2"), ExtResource("13_5iuha")])
+need_coins = 40
+coin = ExtResource("4_oke6o")
+
+[node name="Equip_level_up2" type="Button" parent="Control/CanvasLayer/Panel/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_4mjny")
+text = "hzoracnel"
+icon = ExtResource("11_sfn3q")
+icon_alignment = 1
+vertical_icon_alignment = 0
+script = ExtResource("9_d6wj1")
+textures = Array[Texture2D]([ExtResource("11_vrb1e"), ExtResource("15_61n5s"), ExtResource("16_uf2kp"), ExtResource("17_nokh5")])
+need_coins = 60
+coin = ExtResource("4_oke6o")
+equipment = 1
+
+[node name="Button" type="Button" parent="Control/CanvasLayer/Panel"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_4mjny")
+theme_override_font_sizes/font_size = 24
+text = "X"
+
+[node name="Buy" type="AudioStreamPlayer2D" parent="Control"]
+stream = ExtResource("18_75yt8")
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_area_2d_body_exited"]
+[connection signal="pressed" from="Control/CanvasLayer/Panel/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item_Resource" load_steps=3 format=3 uid="uid://ckche2w2ns158"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/ResourceData.gd" id="1_hugq3"]
+[ext_resource type="Texture2D" uid="uid://cvybqn183fht2" path="res://Scripts/Inventory/Resources/Sprites/Wood.png" id="2_dmh41"]
+
+[resource]
+script = ExtResource("1_hugq3")
+sprite = ExtResource("2_dmh41")
+resource = "Wood"
+count = 0

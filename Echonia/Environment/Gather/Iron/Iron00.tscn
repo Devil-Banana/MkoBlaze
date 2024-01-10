@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c003j1vipb5wn"]
+
+[ext_resource type="PackedScene" uid="uid://dccuvvifqyple" path="res://Environment/Gather/Stone/Stone00.tscn" id="1_8s6qm"]
+[ext_resource type="Resource" uid="uid://cr0sv151fug3q" path="res://Scripts/Inventory/Resources/Iron.tres" id="2_m3qcq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5804"]
+size = Vector2(169, 53)
+
+[node name="Iron" instance=ExtResource("1_8s6qm")]
+resource = ExtResource("2_m3qcq")
+
+[node name="Sprite2D" parent="." index="1"]
+offset = Vector2(0.66667, -33.6667)
+region_rect = Rect2(663, 440, 117, 68)
+
+[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(5.5, -28.5)
+shape = SubResource("RectangleShape2D_s5804")

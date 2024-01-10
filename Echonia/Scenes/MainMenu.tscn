@@ -1,0 +1,259 @@
+[gd_scene load_steps=14 format=3 uid="uid://cmxlwg63yvwuy"]
+
+[ext_resource type="Script" path="res://Scenes/MainMenu.gd" id="1_guycu"]
+[ext_resource type="Texture2D" uid="uid://qov0y3mf6u0v" path="res://Sprites/MainBG.png" id="2_6d0uo"]
+[ext_resource type="FontFile" uid="uid://c7e1n7mxhg6j7" path="res://Fonts/OldTime/Oldtimer.ttf" id="3_nxkna"]
+[ext_resource type="AudioStream" uid="uid://bew2otjkfu3xe" path="res://Music/StarFall.mp3" id="4_ba8s0"]
+[ext_resource type="Texture2D" uid="uid://bdkvpigk7t3oa" path="res://Sprites/UI/Flags/armenia.png" id="6_p4o2c"]
+[ext_resource type="Texture2D" uid="uid://cd6ovdenmxafp" path="res://Sprites/UI/EchoniaTitle.png" id="6_rbk81"]
+[ext_resource type="Script" path="res://Scripts/ChangeLanguage.gd" id="7_dhd6x"]
+[ext_resource type="PackedScene" uid="uid://cpt1ctfhjgh5x" path="res://Scenes/fade.tscn" id="7_li10j"]
+[ext_resource type="Texture2D" uid="uid://4lygmt5dw188" path="res://Sprites/UI/Flags/russia.png" id="8_q8tqw"]
+[ext_resource type="Texture2D" uid="uid://dh316jwtbh6e0" path="res://Sprites/UI/Flags/united-kingdom.png" id="9_tq32o"]
+
+[sub_resource type="Animation" id="Animation_jvsry"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(357, 67)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(461, 171)]
+}
+
+[sub_resource type="Animation" id="Animation_4cd7h"]
+resource_name = "Title"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(357, 67), Vector2(357, 67), Vector2(357, 67), Vector2(357, 67), Vector2(357, 67)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0474732, -0.00660662, 0.03426, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:size")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(461, 171), Vector2(461, 171), Vector2(461, 171), Vector2(461, 171), Vector2(461, 171)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j2r1x"]
+_data = {
+"RESET": SubResource("Animation_jvsry"),
+"Title": SubResource("Animation_4cd7h")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_guycu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.616293, 0.616293)
+texture = ExtResource("2_6d0uo")
+
+[node name="Buttons" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.5
+offset_top = -36.0
+offset_right = 163.5
+offset_bottom = 263.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(161, 154)
+
+[node name="NewGame" type="Button" parent="CanvasLayer/Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -137.5
+offset_right = 150.0
+offset_bottom = -61.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_nxkna")
+theme_override_font_sizes/font_size = 24
+text = "Նոր Խաղ"
+
+[node name="Continiue" type="Button" parent="CanvasLayer/Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -34.5
+offset_right = 150.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_nxkna")
+theme_override_font_sizes/font_size = 24
+text = "Շարունակել"
+
+[node name="EXIT" type="Button" parent="CanvasLayer/Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = 69.5
+offset_right = 150.0
+offset_bottom = 145.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_nxkna")
+theme_override_font_sizes/font_size = 24
+text = "Դուրս"
+
+[node name="Title" type="TextureRect" parent="CanvasLayer"]
+offset_left = 357.0
+offset_top = 67.0
+offset_right = 818.0
+offset_bottom = 238.0
+scale = Vector2(0.96121, 0.96121)
+pivot_offset = Vector2(232, 86)
+texture = ExtResource("6_rbk81")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Title"]
+libraries = {
+"": SubResource("AnimationLibrary_j2r1x")
+}
+speed_scale = 0.5
+
+[node name="Fade" parent="CanvasLayer" instance=ExtResource("7_li10j")]
+visible = false
+mouse_force_pass_scroll_events = false
+
+[node name="Languages" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -77.0
+offset_right = 224.0
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="CanvasLayer/Languages"]
+layout_mode = 0
+offset_right = 550.0
+offset_bottom = 520.0
+scale = Vector2(0.102982, 0.102982)
+theme_override_fonts/font = ExtResource("3_nxkna")
+theme_override_font_sizes/font_size = 136
+text = "AM"
+icon = ExtResource("6_p4o2c")
+icon_alignment = 1
+vertical_icon_alignment = 0
+script = ExtResource("7_dhd6x")
+
+[node name="Button2" type="Button" parent="CanvasLayer/Languages"]
+layout_mode = 0
+offset_left = 72.0
+offset_right = 622.0
+offset_bottom = 826.0
+scale = Vector2(0.102982, 0.102982)
+theme_override_fonts/font = ExtResource("3_nxkna")
+theme_override_font_sizes/font_size = 136
+text = "RU"
+icon = ExtResource("8_q8tqw")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Button3" type="Button" parent="CanvasLayer/Languages"]
+layout_mode = 0
+offset_left = 151.0
+offset_right = 701.0
+offset_bottom = 826.0
+scale = Vector2(0.102982, 0.102982)
+theme_override_fonts/font = ExtResource("3_nxkna")
+theme_override_font_sizes/font_size = 136
+text = "EN"
+icon = ExtResource("9_tq32o")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ba8s0")
+autoplay = true
+bus = &"BGS"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/Buttons/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/EXIT" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Languages/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

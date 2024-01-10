@@ -1,0 +1,150 @@
+[gd_scene load_steps=12 format=3 uid="uid://ue7tsxs6qhcx"]
+
+[ext_resource type="Script" path="res://Scripts/StartTitle.gd" id="1_25hoy"]
+[ext_resource type="Shader" path="res://Shader/Fog.gdshader" id="2_o7sgg"]
+[ext_resource type="Texture2D" uid="uid://bgcogy0afdt83" path="res://Sprites/DirtTexture.png" id="3_tfvlf"]
+[ext_resource type="FontFile" uid="uid://c7e1n7mxhg6j7" path="res://Fonts/OldTime/Oldtimer.ttf" id="4_sgm3v"]
+[ext_resource type="Texture2D" uid="uid://dmeltf0bsrllx" path="res://Sprites/BlurEffect.png" id="5_2rr7j"]
+[ext_resource type="PackedScene" uid="uid://cpt1ctfhjgh5x" path="res://Scenes/fade.tscn" id="6_4p8mh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0wj85"]
+render_priority = 0
+shader = ExtResource("2_o7sgg")
+
+[sub_resource type="LabelSettings" id="LabelSettings_b30fb"]
+font = ExtResource("4_sgm3v")
+font_size = 24
+
+[sub_resource type="Animation" id="Animation_uqoju"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(284, -548)]
+}
+
+[sub_resource type="Animation" id="Animation_agcij"]
+resource_name = "Title"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.5, 2.2, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(284, 705), Vector2(284, 574.688), Vector2(284, 164), Vector2(284, -213), Vector2(284, -456), Vector2(284, -548)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Fade")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"FadeOFF"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Finish_Title"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2fjv3"]
+_data = {
+"RESET": SubResource("Animation_uqoju"),
+"Title": SubResource("Animation_agcij")
+}
+
+[node name="StartTitle" type="Node2D"]
+script = ExtResource("1_25hoy")
+
+[node name="Fog" type="Sprite2D" parent="."]
+z_index = -2
+material = SubResource("ShaderMaterial_0wj85")
+position = Vector2(598, 294)
+scale = Vector2(2.85547, 2.07422)
+texture = ExtResource("3_tfvlf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 284.0
+offset_top = -548.0
+offset_right = 868.0
+offset_bottom = -101.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Շատ վաղուց, օվկիանոսի հենց սրտում, մառախլապատ ալիքների մեջ ընկած է մոռացված աշխարհը՝ Մոռացված բանալիների կղզին: Առեղծվածով ու մոգությամբ տոգորված այս կղզին հնագույն գանձերի շտեմարան է և դարպաս դեպի անհայտ աշխարհներ:
+
+Կղզին մթագնված էր դարերի մոռացության պատճառով, բայց նրա հարստությունների և տարօրինակ դարպասների մասին լեգենդները գրավում էին արի արկածախնդիրներին: Եվ հիմա եկել է ձեր ժամանակը. դուք գնում եք այս խորհրդավոր երկիր՝ փառքի, հարստության և հնագույն առեղծվածները լուծելու համար:"
+label_settings = SubResource("LabelSettings_b30fb")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = -392.0
+offset_right = 384.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.606985, 0.606985)
+pivot_offset = Vector2(967.076, 400.34)
+texture = ExtResource("5_2rr7j")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.419608)
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -384.0
+offset_top = -48.0
+offset_right = 384.0
+offset_bottom = 354.0
+grow_horizontal = 2
+scale = Vector2(0.606985, 0.606985)
+pivot_offset = Vector2(962.009, -7.14951)
+texture = ExtResource("5_2rr7j")
+flip_v = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("../Label")
+libraries = {
+"": SubResource("AnimationLibrary_2fjv3")
+}
+speed_scale = 0.1
+
+[node name="Fade" parent="CanvasLayer" instance=ExtResource("6_4p8mh")]

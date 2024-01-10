@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfi02x82xur1n"]
+
+[ext_resource type="PackedScene" uid="uid://dmyvbdh75k170" path="res://Environment/Gather/Tree/Tree00.tscn" id="1_n2xvo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vax8b"]
+size = Vector2(114, 24)
+
+[node name="Tree" instance=ExtResource("1_n2xvo")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-2, -111)
+offset = Vector2(12, -118)
+region_rect = Rect2(581, 142, 318, 200)
+
+[node name="Sprite2D" parent="Sprite2D" index="0"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(0, 0)
+region_rect = Rect2(581, 142, 318, 200)
+
+[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(3, -32)
+shape = SubResource("RectangleShape2D_vax8b")
+
+[node name="WoodPoint" parent="." index="4"]
+position = Vector2(3, -83)
+scale = Vector2(0.905137, 1)
+region_rect = Rect2(667, 392, 126, 153)
+
+[node name="Timer" parent="." index="5"]
+wait_time = 47.313

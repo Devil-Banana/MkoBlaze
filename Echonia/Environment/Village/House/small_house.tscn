@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://djg1nvy8i4h4w"]
+
+[ext_resource type="Texture2D" uid="uid://dwru4sggifiy6" path="res://Environment/Village.png" id="1_j4gse"]
+[ext_resource type="Texture2D" uid="uid://bln8h2wjekdoc" path="res://Sprites/Shadow.png" id="2_u753n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5t8o"]
+size = Vector2(386, 189)
+
+[node name="Small_House" type="Sprite2D"]
+position = Vector2(3141, -2408)
+texture = ExtResource("1_j4gse")
+offset = Vector2(40, -133)
+region_enabled = true
+region_rect = Rect2(1173, 1429, 443, 448)
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(54, 37)
+scale = Vector2(13.1058, 12.3863)
+texture = ExtResource("2_u753n")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(31, 99)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, -77.5)
+shape = SubResource("RectangleShape2D_m5t8o")

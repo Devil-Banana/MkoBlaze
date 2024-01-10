@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2tlcgadwn0vi"]
+
+[ext_resource type="Texture2D" uid="uid://dwru4sggifiy6" path="res://Environment/Village.png" id="1_ha85g"]
+[ext_resource type="Texture2D" uid="uid://bln8h2wjekdoc" path="res://Sprites/Shadow.png" id="2_552h2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j0u25"]
+radius = 48.0
+height = 344.0
+
+[node name="fountain" type="Sprite2D"]
+y_sort_enabled = true
+texture = ExtResource("1_ha85g")
+offset = Vector2(0, -56)
+region_enabled = true
+region_rect = Rect2(1659, 742, 338, 270)
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(8, 33)
+scale = Vector2(8.50436, 13.7907)
+texture = ExtResource("2_552h2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-37, 72)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(40, -49)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_j0u25")

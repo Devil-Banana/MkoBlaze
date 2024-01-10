@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4g7p78pem86b"]
+
+[ext_resource type="Script" path="res://Environment/Gather/gather.gd" id="1_giyx3"]
+
+[node name="Gather" type="Node2D"]
+script = ExtResource("1_giyx3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+disabled = true
+
+[node name="Mouse_Zone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mouse_Zone"]
+
+[node name="Farm" type="Timer" parent="."]
+wait_time = 22.036
+one_shot = true
+autostart = true
+
+[connection signal="mouse_entered" from="Mouse_Zone" to="." method="_on_mouse_zone_mouse_entered"]
+[connection signal="mouse_exited" from="Mouse_Zone" to="." method="_on_mouse_zone_mouse_exited"]
+[connection signal="timeout" from="Farm" to="." method="_on_farm_timeout"]

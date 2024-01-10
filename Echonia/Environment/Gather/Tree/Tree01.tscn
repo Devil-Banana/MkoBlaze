@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://buqaorcq2lrru"]
+
+[ext_resource type="PackedScene" uid="uid://dmyvbdh75k170" path="res://Environment/Gather/Tree/Tree00.tscn" id="1_jiufo"]
+
+[node name="Tree" instance=ExtResource("1_jiufo")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-1, -17)
+offset = Vector2(1, -45)
+region_rect = Rect2(91, 339, 63, 95)
+
+[node name="Sprite2D" parent="Sprite2D" index="0"]
+position = Vector2(6, -112)
+region_rect = Rect2(3, 34, 236, 243)
+
+[node name="WoodPoint" parent="." index="4"]
+position = Vector2(-1, 11)
+offset = Vector2(7, -17)
+region_rect = Rect2(86, 480, 82, 57)
+
+[node name="Shadow" parent="WoodPoint" index="0"]
+position = Vector2(-1.33333, -3)
+scale = Vector2(3.30025, 3.30025)
+
+[node name="Timer" parent="." index="5"]
+wait_time = 35.0

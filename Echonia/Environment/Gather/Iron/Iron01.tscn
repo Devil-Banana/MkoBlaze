@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgyit2vnjtnbw"]
+
+[ext_resource type="PackedScene" uid="uid://dccuvvifqyple" path="res://Environment/Gather/Stone/Stone00.tscn" id="1_nq4tl"]
+[ext_resource type="Resource" uid="uid://cr0sv151fug3q" path="res://Scripts/Inventory/Resources/Iron.tres" id="2_cd7oo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvsjy"]
+size = Vector2(291, 54.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c07p1"]
+radius = 87.0001
+height = 304.0
+
+[node name="Iron" instance=ExtResource("1_nq4tl")]
+resource = ExtResource("2_cd7oo")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(1, -6)
+offset = Vector2(1.33334, -35.6667)
+region_rect = Rect2(13, 405, 203, 106)
+
+[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(5.5, -10.25)
+shape = SubResource("RectangleShape2D_lvsjy")
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("CapsuleShape2D_c07p1")

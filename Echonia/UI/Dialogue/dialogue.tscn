@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqlhm80s2moqn"]
+
+[ext_resource type="Texture2D" uid="uid://dedf1nkqaeat1" path="res://Sprites/UI/DialogueBox.png" id="1_ia0ek"]
+[ext_resource type="Script" path="res://UI/Dialogue/dialogue.gd" id="1_x8ywg"]
+[ext_resource type="FontFile" uid="uid://c7e1n7mxhg6j7" path="res://Fonts/OldTime/Oldtimer.ttf" id="3_fcy73"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cfrxd"]
+font = ExtResource("3_fcy73")
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x8ywg")
+d_file = Array[String](["res://Dialogue/Villages/Dialogue0.json", "res://Dialogue/Villages/Dialogue1.json", "res://Dialogue/Villages/Dialogue2.json"])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_top = -186.0
+offset_right = -300.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_ia0ek")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="dialog" type="RichTextLabel" parent="CanvasLayer/NinePatchRect"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 56.0
+offset_right = 514.0
+offset_bottom = 153.0
+theme_override_fonts/normal_font = ExtResource("3_fcy73")
+text = "CHATTING ......
+.....
+....
+...:"
+
+[node name="Name" type="Label" parent="CanvasLayer/NinePatchRect"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 15.0
+offset_right = 60.0
+offset_bottom = 38.0
+theme_override_font_sizes/font_size = 26
+text = "NAME"
+label_settings = SubResource("LabelSettings_cfrxd")

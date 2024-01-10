@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item_Resource" load_steps=3 format=3 uid="uid://c42ng2n2galhd"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/ResourceData.gd" id="1_bst2f"]
+[ext_resource type="Texture2D" uid="uid://dgfhnc82lw7w3" path="res://Scripts/Inventory/Resources/Sprites/Coins.png" id="2_56uha"]
+
+[resource]
+script = ExtResource("1_bst2f")
+sprite = ExtResource("2_56uha")
+resource = "Coin"
+count = 25

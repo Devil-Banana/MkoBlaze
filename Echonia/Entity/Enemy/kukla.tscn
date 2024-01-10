@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4eo71qgjdiw1"]
+
+[ext_resource type="PackedScene" uid="uid://bk1j3jp70up48" path="res://Entity/entity.tscn" id="1_7t7gd"]
+[ext_resource type="Script" path="res://Entity/Enemy/Enemy.gd" id="2_5qvr8"]
+[ext_resource type="Texture2D" uid="uid://ca2h1psj06235" path="res://Sprites/Kukla.png" id="3_2fn3h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ux7in"]
+size = Vector2(21, 11)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4lj0o"]
+radius = 42.0
+height = 114.0
+
+[node name="Kukla" instance=ExtResource("1_7t7gd")]
+y_sort_enabled = true
+collision_layer = 265
+collision_mask = 34
+script = ExtResource("2_5qvr8")
+
+[node name="Skin" parent="." index="0"]
+y_sort_enabled = true
+
+[node name="Body" parent="Skin" index="0"]
+texture_filter = 5
+texture = ExtResource("3_2fn3h")
+
+[node name="Collision" parent="." index="1"]
+position = Vector2(-0.5, 39.5)
+shape = SubResource("RectangleShape2D_ux7in")
+debug_color = Color(0.992157, 0, 0.227451, 0.419608)
+
+[node name="HurtBox" parent="." index="2"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("CapsuleShape2D_4lj0o")
+debug_color = Color(0.858824, 0.364706, 0.0745098, 0.419608)
