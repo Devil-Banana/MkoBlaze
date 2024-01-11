@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://dcgoye8tysisb"]
+
+[ext_resource type="Script" path="res://Scripts/CharacterStat.gd" id="1_w1x6d"]
+
+[resource]
+script = ExtResource("1_w1x6d")
+MaxHealth = 50
+Instrumentlevel = 1
+WeaponLevel = 1

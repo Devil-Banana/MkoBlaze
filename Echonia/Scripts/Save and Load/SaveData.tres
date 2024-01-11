@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SaveData" load_steps=7 format=3 uid="uid://dlq46opq2u6nh"]
+
+[ext_resource type="Script" path="res://Scripts/Save and Load/SaveData.gd" id="1_13oxm"]
+[ext_resource type="Resource" uid="uid://c42ng2n2galhd" path="res://Scripts/Inventory/Resources/Coin.tres" id="1_llxan"]
+[ext_resource type="Resource" uid="uid://cr0sv151fug3q" path="res://Scripts/Inventory/Resources/Iron.tres" id="2_0sirv"]
+[ext_resource type="Resource" uid="uid://da7ub0jrtxhq4" path="res://Scripts/Inventory/Resources/Stone.tres" id="3_v5wl8"]
+[ext_resource type="Resource" uid="uid://ckche2w2ns158" path="res://Scripts/Inventory/Resources/Wood.tres" id="4_ss2t5"]
+[ext_resource type="Resource" uid="uid://dcgoye8tysisb" path="res://Entity/MainCharacter/PlayerData.tres" id="5_qcx2h"]
+
+[resource]
+script = ExtResource("1_13oxm")
+ResourceData = Array[Resource("res://Scripts/Inventory/ResourceData.gd")]([ExtResource("1_llxan"), ExtResource("2_0sirv"), ExtResource("3_v5wl8"), ExtResource("4_ss2t5")])
+playerData = ExtResource("5_qcx2h")

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bk1j3jp70up48" path="res://Entity/entity.tscn" id="1_4ohja"]
 [ext_resource type="Script" path="res://Entity/MainCharacter/player.gd" id="2_ij66v"]
 [ext_resource type="Texture2D" uid="uid://btimcgsfgilu6" path="res://Entity/Sprites/Concepto.png" id="3_nxyxb"]
+[ext_resource type="Resource" uid="uid://dcgoye8tysisb" path="res://Entity/MainCharacter/PlayerData.tres" id="3_v4d54"]
 [ext_resource type="Texture2D" uid="uid://cricfphxxssuk" path="res://HandTool/Textures/AxeLvl0.png" id="4_ehi7w"]
 [ext_resource type="Texture2D" uid="uid://bln8h2wjekdoc" path="res://Sprites/Shadow.png" id="5_x6sen"]
 [ext_resource type="PackedScene" uid="uid://blwqc5vmmnl7f" path="res://UI/GUI/inventory.tscn" id="7_07t8d"]
@@ -16,7 +17,6 @@
 [ext_resource type="FontFile" uid="uid://c7e1n7mxhg6j7" path="res://Fonts/OldTime/Oldtimer.ttf" id="13_pfed4"]
 [ext_resource type="Texture2D" uid="uid://bvdmjgirmvje8" path="res://Sprites/UI/UX/Button.png" id="14_hmhp6"]
 [ext_resource type="Texture2D" uid="uid://bsj3tycc2ys3p" path="res://Sprites/UI/UX/Bag.png" id="15_l74u7"]
-[ext_resource type="Script" path="res://Scripts/CharacterStat.gd" id="16_k5udg"]
 [ext_resource type="Texture2D" uid="uid://dgfhnc82lw7w3" path="res://Scripts/Inventory/Resources/Sprites/Coins.png" id="17_squcj"]
 [ext_resource type="Script" path="res://Scripts/Inventory/ResourceShow.gd" id="18_p5rpb"]
 [ext_resource type="Resource" uid="uid://c42ng2n2galhd" path="res://Scripts/Inventory/Resources/Coin.tres" id="19_nuqi2"]
@@ -939,6 +939,7 @@ collision_layer = 2
 collision_mask = 41
 script = ExtResource("2_ij66v")
 SPEED = 200.0
+playerData = ExtResource("3_v4d54")
 metadata/_edit_group_ = true
 
 [node name="Skin" parent="." index="0"]
@@ -1300,13 +1301,7 @@ icon = ExtResource("4_ehi7w")
 icon_alignment = 1
 vertical_icon_alignment = 0
 
-[node name="Stat" type="Node" parent="." index="5"]
-unique_name_in_owner = true
-script = ExtResource("16_k5udg")
-char_name = "HERO"
-MaxHealth = 25
-
-[node name="PlayerAudio" type="AudioStreamPlayer2D" parent="." index="6"]
+[node name="PlayerAudio" type="AudioStreamPlayer2D" parent="." index="5"]
 stream = ExtResource("21_02ypo")
 bus = &"BGS"
 

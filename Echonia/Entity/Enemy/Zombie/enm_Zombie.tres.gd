@@ -13,6 +13,7 @@ enum {
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var Drop : Item_Resource
+@export var Strenght := 2.0
 var dir = Vector2.RIGHT
 var start_pos: Vector2
 var current_state = IDLE
@@ -134,7 +135,7 @@ func _on_attack_timer_timeout() -> void:
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
-	area.get_parent().damage()
+	area.get_parent().damage(Strenght)
 	pass # Replace with function body.
 
 

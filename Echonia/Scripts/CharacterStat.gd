@@ -1,11 +1,14 @@
-extends Node
-class_name Stat
+extends Resource
+class_name CharacterData
 
-@export var char_name := ""
 @export var MaxHealth := 5
-var Health := MaxHealth
+@export var Health = 1
 @export var Instrumentlevel := 1
 @export var WeaponLevel := 1
+@export var pos : Vector2
 
-func _ready() -> void:
+func startHealthUpdate():
 	Health = MaxHealth
+
+func takeDamage(damage):
+	Health -= damage

@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @export var SPEED = 300.0
+@export var playerData = CharacterData.new()
+
 @onready var anim = $AnimationPlayer
 @onready var equip = $HUD/CanvasLayer/Handle
 @onready var hit_box = $Skin/HitBox
@@ -8,9 +10,9 @@ enum  {Idle,Walk,Damage,Attack}
 var state = Idle
 var can_move = true
 
-
-
-
+func on_start_load():
+	print("A")
+	position = playerData.pos
 
 func _physics_process(delta):
 	
@@ -59,10 +61,9 @@ func _physics_process(delta):
 		Attack:
 			anim.play('Attack')
 
-
-func damage():
+func damage(strenght):
 	state = Damage
-	%Stat.Health -= 2
+	playerData.takeDamage(strenght)
 	var tween = create_tween()
 	await tween.tween_property($Skin, 'modulate', Color.DARK_RED,0.2)
 	tween.tween_property($Skin, 'modulate', Color.WHITE,0.1)
@@ -85,9 +86,13 @@ func _input(event: InputEvent) -> void:
 
 func attack_finish():
 	state = Idle
+
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	if Equip.wep == "Wep":
 		area.get_parent().damage(Equip.damage_strenght)
 	elif Equip.wep == "Gather":
 		area.get_parent().damage(Equip.gather_strenght)
 	pass # Replace with function body.
+
+func save_pos():
+	playerData.pos = position

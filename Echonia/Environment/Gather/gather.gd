@@ -11,6 +11,7 @@ var dropcnt
 func _ready():
 	Lvl = randi() % 3
 	scale = Vector2(Lvl,Lvl)
+	current_health = health * 5
 	current_health * Lvl
 
 func damageEffect(ob):

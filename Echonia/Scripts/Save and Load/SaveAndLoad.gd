@@ -1,21 +1,36 @@
-extends Node
+extends Timer
 class_name save_and_load
 
-@export var player : Node2D
-@export var inv : Array
+@export_group("Player Save")
+@export var saveData = SaveData
+var save_file_path = "user://save/"
+var save_file_name = "WorldSave"+ str(G.saveSlot) +".tres"
 
-
-
-func load_game():
-	if not FileAccess.file_exists("user://savegame.save"):
-		return
+func _ready() -> void:
+	verify_save_dict(save_file_path)
+	pass
 	
-	var save_game = FileAccess.open("user://savegame.save",FileAccess.READ)
+
+func verify_save_dict(path: String):
+	DirAccess.make_dir_absolute(path)
+
+func load_data():
+	saveData = ResourceLoader.load(save_file_path+save_file_name).duplicate(true)
+	get_tree().call_group("Player","on_start_load")
+	saveData.load_resource_data()
+	print("loaded")
 	
-	while save_game.get_position() < save_game.get_length():
-		var json_string = save_game.get_line()
-		var json = JSON.new()
-		var parse_result = json.parse(json_string)
-		var node_data = json.get_data()
-		
-		print(node_data)
+
+func save():
+	saveData.save_resource_data()
+	get_tree().call_group("Player","save_pos")
+	ResourceSaver.save(saveData,save_file_path+save_file_name)
+
+	print("save")
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("save"):
+		save()
+	elif  event.is_action_pressed('load'):
+		load_data()

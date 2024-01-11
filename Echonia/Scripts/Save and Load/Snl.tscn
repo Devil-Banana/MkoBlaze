@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://crf6ltgjb4ga0"]
+
+[ext_resource type="Script" path="res://Scripts/Save and Load/SaveAndLoad.gd" id="1_2xcsu"]
+[ext_resource type="Resource" uid="uid://dlq46opq2u6nh" path="res://Scripts/Save and Load/SaveData.tres" id="2_7hoi2"]
+
+[node name="save_and_load" type="Timer"]
+script = ExtResource("1_2xcsu")
+saveData = ExtResource("2_7hoi2")
