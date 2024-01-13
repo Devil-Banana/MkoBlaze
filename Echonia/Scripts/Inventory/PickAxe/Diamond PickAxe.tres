@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Equip_item" load_steps=3 format=3 uid="uid://doxqpnuubsni0"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/EquipData.gd" id="1_b4ga0"]
+[ext_resource type="Texture2D" uid="uid://bf5oub4ghftf2" path="res://Scripts/Inventory/PickAxe/Textures/AxeLvl2.png" id="2_wv41v"]
+
+[resource]
+script = ExtResource("1_b4ga0")
+equip_type = 1
+equip = "Golden PickAxe"
+damage_strenght = 3.0
+sprite = ExtResource("2_wv41v")
+attack_speed = 2.0

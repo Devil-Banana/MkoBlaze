@@ -6,17 +6,17 @@
 [ext_resource type="Resource" uid="uid://da7ub0jrtxhq4" path="res://Scripts/Inventory/Resources/Stone.tres" id="3_2tikj"]
 [ext_resource type="Resource" uid="uid://c42ng2n2galhd" path="res://Scripts/Inventory/Resources/Coin.tres" id="4_oke6o"]
 [ext_resource type="LabelSettings" uid="uid://co3mrbvbm3of6" path="res://Scripts/Interact/InteractFont.tres" id="5_a8hqp"]
-[ext_resource type="Texture2D" uid="uid://cjxrw6ayibbex" path="res://Entity/Sprites/Entity.png" id="6_khnd1"]
+[ext_resource type="Texture2D" uid="uid://cjxrw6ayibbex" path="res://Entity/Sprites/SpriteSheet01.png" id="7_1owwi"]
 [ext_resource type="FontFile" uid="uid://c7e1n7mxhg6j7" path="res://Fonts/OldTime/Oldtimer.ttf" id="8_4mjny"]
+[ext_resource type="Texture2D" uid="uid://hek6uim87shn" path="res://Scripts/Inventory/Equip/Sword/Texture/slice11.png" id="9_5ux3u"]
 [ext_resource type="Script" path="res://Environment/Village/Build/Smith/Equip_Level_UP.gd" id="9_d6wj1"]
-[ext_resource type="Texture2D" uid="uid://c7jci1pv0knbm" path="res://HandTool/Sword/Texture/slice12.png" id="9_f4bg6"]
-[ext_resource type="Texture2D" uid="uid://hek6uim87shn" path="res://HandTool/Sword/Texture/slice11.png" id="11_sfn3q"]
-[ext_resource type="Texture2D" uid="uid://bawux3focgl1m" path="res://HandTool/Textures/AxeLvl1.png" id="11_vrb1e"]
-[ext_resource type="Texture2D" uid="uid://tvhn0tkjhpho" path="res://HandTool/Sword/Texture/slice13.png" id="12_7ows2"]
-[ext_resource type="Texture2D" uid="uid://cepnafss0638b" path="res://HandTool/Sword/Texture/slice14.png" id="13_5iuha"]
-[ext_resource type="Texture2D" uid="uid://bf5oub4ghftf2" path="res://HandTool/Textures/AxeLvl2.png" id="15_61n5s"]
-[ext_resource type="Texture2D" uid="uid://6ibajfcg1bq8" path="res://HandTool/Textures/AxeLvl3.png" id="16_uf2kp"]
-[ext_resource type="Texture2D" uid="uid://b4kbhdi2jj07p" path="res://HandTool/Textures/AxeLvl10.png" id="17_nokh5"]
+[ext_resource type="Texture2D" uid="uid://c7jci1pv0knbm" path="res://Scripts/Inventory/Equip/Sword/Texture/slice12.png" id="11_pnxhg"]
+[ext_resource type="Texture2D" uid="uid://tvhn0tkjhpho" path="res://Scripts/Inventory/Equip/Sword/Texture/slice13.png" id="12_cnbk1"]
+[ext_resource type="Texture2D" uid="uid://cepnafss0638b" path="res://Scripts/Inventory/Equip/Sword/Texture/slice14.png" id="13_rlv33"]
+[ext_resource type="Texture2D" uid="uid://bawux3focgl1m" path="res://Scripts/Inventory/PickAxe/Textures/AxeLvl1.png" id="14_vx6d6"]
+[ext_resource type="Texture2D" uid="uid://bf5oub4ghftf2" path="res://Scripts/Inventory/PickAxe/Textures/AxeLvl2.png" id="15_6bjbe"]
+[ext_resource type="Texture2D" uid="uid://6ibajfcg1bq8" path="res://Scripts/Inventory/PickAxe/Textures/AxeLvl3.png" id="16_hdyle"]
+[ext_resource type="Texture2D" uid="uid://b4kbhdi2jj07p" path="res://Scripts/Inventory/PickAxe/Textures/AxeLvl10.png" id="17_p4vty"]
 [ext_resource type="AudioStream" uid="uid://dyuypbk5q2w2y" path="res://Sound/Coins/Sell.wav" id="18_75yt8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hsqc8"]
@@ -210,14 +210,14 @@ scale = Vector2(-1, 1)
 
 [node name="Body" type="Sprite2D" parent="Builded/Character"]
 position = Vector2(0, 26.1584)
-texture = ExtResource("6_khnd1")
+texture = ExtResource("7_1owwi")
 region_enabled = true
 region_rect = Rect2(643, 166, 68, 62)
 
 [node name="Head" type="Sprite2D" parent="Builded/Character"]
 z_index = 1
 position = Vector2(0, -26)
-texture = ExtResource("6_khnd1")
+texture = ExtResource("7_1owwi")
 offset = Vector2(1.34637, -38.6584)
 region_enabled = true
 region_rect = Rect2(626, 65, 101, 91)
@@ -225,7 +225,7 @@ region_rect = Rect2(626, 65, 101, 91)
 [node name="Leg" type="Sprite2D" parent="Builded/Character"]
 z_index = -1
 position = Vector2(0, 47)
-texture = ExtResource("6_khnd1")
+texture = ExtResource("7_1owwi")
 offset = Vector2(0.402527, 30.755)
 region_enabled = true
 region_rect = Rect2(643, 244, 61, 62)
@@ -278,11 +278,11 @@ columns = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("8_4mjny")
 text = "hzoracnel"
-icon = ExtResource("11_sfn3q")
+icon = ExtResource("9_5ux3u")
 icon_alignment = 1
 vertical_icon_alignment = 0
 script = ExtResource("9_d6wj1")
-textures = Array[Texture2D]([ExtResource("9_f4bg6"), ExtResource("11_sfn3q"), ExtResource("12_7ows2"), ExtResource("13_5iuha")])
+textures = Array[Texture2D]([ExtResource("11_pnxhg"), ExtResource("9_5ux3u"), ExtResource("12_cnbk1"), ExtResource("13_rlv33")])
 need_coins = 40
 coin = ExtResource("4_oke6o")
 
@@ -290,11 +290,11 @@ coin = ExtResource("4_oke6o")
 layout_mode = 2
 theme_override_fonts/font = ExtResource("8_4mjny")
 text = "hzoracnel"
-icon = ExtResource("11_sfn3q")
+icon = ExtResource("9_5ux3u")
 icon_alignment = 1
 vertical_icon_alignment = 0
 script = ExtResource("9_d6wj1")
-textures = Array[Texture2D]([ExtResource("11_vrb1e"), ExtResource("15_61n5s"), ExtResource("16_uf2kp"), ExtResource("17_nokh5")])
+textures = Array[Texture2D]([ExtResource("14_vx6d6"), ExtResource("15_6bjbe"), ExtResource("16_hdyle"), ExtResource("17_p4vty")])
 need_coins = 60
 coin = ExtResource("4_oke6o")
 equipment = 1

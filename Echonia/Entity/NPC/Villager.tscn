@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://b1mdkrg0gcup"]
 
 [ext_resource type="PackedScene" uid="uid://bk1j3jp70up48" path="res://Entity/entity.tscn" id="1_vweak"]
-[ext_resource type="Texture2D" uid="uid://btimcgsfgilu6" path="res://Entity/Sprites/Concepto.png" id="2_3o8iw"]
+[ext_resource type="Texture2D" uid="uid://btimcgsfgilu6" path="res://Entity/Sprites/SpriteSheet00.png" id="2_3o8iw"]
 [ext_resource type="Script" path="res://Entity/NPC/Villager.gd" id="2_i5hjh"]
 [ext_resource type="PackedScene" uid="uid://dqlhm80s2moqn" path="res://UI/Dialogue/dialogue.tscn" id="4_87q3f"]
 [ext_resource type="LabelSettings" uid="uid://co3mrbvbm3of6" path="res://Scripts/Interact/InteractFont.tres" id="5_6uxq7"]

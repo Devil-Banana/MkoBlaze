@@ -1,0 +1,500 @@
+[gd_scene load_steps=29 format=3 uid="uid://blwqc5vmmnl7f"]
+
+[ext_resource type="Script" path="res://UI/GUI/inventoryManager.gd" id="1_q20e5"]
+[ext_resource type="Script" path="res://UI/Debug.gd" id="2_k8jd5"]
+[ext_resource type="Texture2D" uid="uid://dfrjry1hu6m66" path="res://Sprites/UI/UI_Boxes.png" id="2_km2rs"]
+[ext_resource type="FontFile" uid="uid://c7e1n7mxhg6j7" path="res://Fonts/OldTime/Oldtimer.ttf" id="2_wsxor"]
+[ext_resource type="Texture2D" uid="uid://cvybqn183fht2" path="res://Scripts/Inventory/Resources/Sprites/Wood.png" id="3_0aj1e"]
+[ext_resource type="Shader" path="res://UI/GUI/BgBlur.gdshader" id="3_i1nbw"]
+[ext_resource type="Script" path="res://Scripts/Inventory/ResourceShow.gd" id="3_pknrh"]
+[ext_resource type="Resource" uid="uid://ckche2w2ns158" path="res://Scripts/Inventory/Resources/Wood.tres" id="4_k6px4"]
+[ext_resource type="Resource" uid="uid://da7ub0jrtxhq4" path="res://Scripts/Inventory/Resources/Stone.tres" id="5_ji65l"]
+[ext_resource type="Resource" uid="uid://cr0sv151fug3q" path="res://Scripts/Inventory/Resources/Iron.tres" id="6_x3xi8"]
+[ext_resource type="Script" path="res://UI/GUI/HUD.gd" id="11_qh1xp"]
+[ext_resource type="Texture2D" uid="uid://dfv5l358hby5i" path="res://Sprites/UI/UX/bubble.png" id="12_dnb4o"]
+[ext_resource type="Texture2D" uid="uid://fp8wx6dapqor" path="res://Sprites/UI/UX/BuubbleOver.png" id="13_hgpjq"]
+[ext_resource type="Resource" uid="uid://c42ng2n2galhd" path="res://Scripts/Inventory/Resources/Coin.tres" id="13_ksqls"]
+[ext_resource type="Texture2D" uid="uid://dk0c7pkiextbh" path="res://Sprites/UI/UX/Health.png" id="14_2l4rc"]
+[ext_resource type="Texture2D" uid="uid://dxyvypptnqpk7" path="res://Sprites/UI/UX/heart.png" id="15_u710t"]
+[ext_resource type="Texture2D" uid="uid://bvdmjgirmvje8" path="res://Sprites/UI/UX/Button.png" id="16_jn2vb"]
+[ext_resource type="Texture2D" uid="uid://bsj3tycc2ys3p" path="res://Sprites/UI/UX/Bag.png" id="17_rsyap"]
+[ext_resource type="FontFile" uid="uid://l4bre1arawpf" path="res://Fonts/pixellari/Pixellari.ttf" id="18_1aoor"]
+[ext_resource type="Texture2D" uid="uid://dgfhnc82lw7w3" path="res://Scripts/Inventory/Resources/Sprites/Coins.png" id="19_5p6qg"]
+[ext_resource type="Texture2D" uid="uid://cricfphxxssuk" path="res://Scripts/Inventory/PickAxe/Textures/AxeLvl0.png" id="20_8dmf1"]
+[ext_resource type="Texture2D" uid="uid://c00oto211lj22" path="res://Scripts/Inventory/Equip/Sword/Texture/slice10.png" id="22_8dmuy"]
+[ext_resource type="Script" path="res://Scripts/Inventory/EquipButton.gd" id="23_5bgrn"]
+[ext_resource type="Resource" uid="uid://cxptoer1gf6nt" path="res://Scripts/Inventory/Equip/Sword/SimpleSword.tres" id="24_eid4p"]
+[ext_resource type="Resource" uid="uid://bog1gbu132jiy" path="res://Scripts/Inventory/PickAxe/SimplePickaxe.tres" id="25_3j4w4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4f53m"]
+font = ExtResource("2_wsxor")
+font_size = 34
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vr6ox"]
+font = ExtResource("18_1aoor")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sldd1"]
+shader = ExtResource("3_i1nbw")
+shader_parameter/amount = 4.783
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q20e5")
+
+[node name="UX" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Root" type="Control" parent="UX"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_right = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_qh1xp")
+
+[node name="HealthBuuble" type="Control" parent="UX/Root"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -162.0
+offset_right = 443.0
+offset_bottom = -26.0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(15, 119)
+
+[node name="ProgressBar" type="TextureProgressBar" parent="UX/Root/HealthBuuble"]
+layout_mode = 0
+offset_right = 144.0
+offset_bottom = 128.0
+value = 76.0
+fill_mode = 5
+texture_under = ExtResource("12_dnb4o")
+texture_over = ExtResource("13_hgpjq")
+texture_progress = ExtResource("14_2l4rc")
+
+[node name="TextureRect" type="TextureRect" parent="UX/Root/HealthBuuble"]
+self_modulate = Color(0.596078, 0.0901961, 0.192157, 0.756863)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 39.0
+offset_top = 47.0
+offset_right = -351.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.94405, 1.94405)
+pivot_offset = Vector2(20, 21)
+texture = ExtResource("15_u710t")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="UX/Root/HealthBuuble"]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 47.0
+offset_right = 222.0
+offset_bottom = 79.0
+pivot_offset = Vector2(19, 1)
+text = "75%"
+label_settings = SubResource("LabelSettings_4f53m")
+horizontal_alignment = 1
+
+[node name="Bag" type="Control" parent="UX/Root"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1042.0
+offset_top = -106.0
+offset_right = 1082.0
+offset_bottom = -66.0
+grow_vertical = 0
+
+[node name="TextureButton" type="TextureButton" parent="UX/Root/Bag"]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 51.0
+texture_normal = ExtResource("16_jn2vb")
+texture_pressed = ExtResource("16_jn2vb")
+texture_hover = ExtResource("16_jn2vb")
+texture_focused = ExtResource("16_jn2vb")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="UX/Root/Bag/TextureButton"]
+self_modulate = Color(0, 0, 0, 0.627451)
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 49.0
+offset_bottom = 49.0
+scale = Vector2(0.848835, 0.848835)
+pivot_offset = Vector2(23.5617, 27.096)
+texture = ExtResource("17_rsyap")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="UX/Root/Bag"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 54.0
+offset_right = 44.0
+offset_bottom = 89.0
+text = "BAG
+(I)"
+label_settings = SubResource("LabelSettings_vr6ox")
+horizontal_alignment = 1
+
+[node name="Coin" type="Button" parent="UX/Root"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = -182.0
+offset_right = 135.0
+offset_bottom = -110.0
+grow_vertical = 0
+scale = Vector2(0.760788, 0.760788)
+theme_override_fonts/font = ExtResource("2_wsxor")
+theme_override_font_sizes/font_size = 24
+text = "999"
+icon = ExtResource("19_5p6qg")
+flat = true
+script = ExtResource("3_pknrh")
+rsc = ExtResource("13_ksqls")
+
+[node name="Handle" type="Button" parent="UX"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.5
+offset_top = -147.0
+offset_right = 54.5
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.540296, 0.532519)
+theme_override_fonts/font = ExtResource("2_wsxor")
+theme_override_font_sizes/font_size = 24
+text = "2"
+icon = ExtResource("20_8dmf1")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Handle2" type="Button" parent="UX"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -129.0
+offset_top = -123.0
+offset_right = -19.9999
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.382397, 0.376893)
+theme_override_fonts/font = ExtResource("2_wsxor")
+theme_override_font_sizes/font_size = 24
+text = "1"
+icon = ExtResource("20_8dmf1")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Handle3" type="Button" parent="UX"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -123.0
+offset_right = 139.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.382397, 0.376893)
+theme_override_fonts/font = ExtResource("2_wsxor")
+theme_override_font_sizes/font_size = 24
+text = "3
+"
+icon = ExtResource("20_8dmf1")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Debug" type="CanvasLayer" parent="."]
+layer = 5
+visible = false
+script = ExtResource("2_k8jd5")
+
+[node name="FpsText" type="Label" parent="Debug"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 24
+text = "FPS:"
+
+[node name="TimeScale" type="Label" parent="Debug"]
+offset_top = 64.0
+offset_right = 71.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 24
+text = "FPS:"
+
+[node name="ArchitetureName" type="Label" parent="Debug"]
+offset_top = 140.0
+offset_right = 71.0
+offset_bottom = 190.0
+theme_override_font_sizes/font_size = 24
+text = "FPS:"
+
+[node name="MainLoop" type="Label" parent="Debug"]
+offset_top = 223.0
+offset_right = 71.0
+offset_bottom = 273.0
+theme_override_font_sizes/font_size = 24
+text = "FPS:"
+
+[node name="PhysicsPhrames" type="Label" parent="Debug"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -71.0
+offset_bottom = 50.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "FPS:"
+horizontal_alignment = 2
+
+[node name="PhysicsInterpolation" type="Label" parent="Debug"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -71.0
+offset_top = 81.0
+offset_bottom = 131.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "FPS:"
+horizontal_alignment = 2
+
+[node name="ProcceseFrames" type="Label" parent="Debug"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -71.0
+offset_top = 157.0
+offset_bottom = 207.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "FPS:"
+horizontal_alignment = 2
+
+[node name="VersionInfo" type="Label" parent="Debug"]
+offset_top = 590.0
+offset_right = 71.0
+offset_bottom = 640.0
+theme_override_font_sizes/font_size = 20
+text = "FPS:"
+vertical_alignment = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_sldd1")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Inventory" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Inventory" type="Control" parent="Inventory"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="NinePatchRect" parent="Inventory/Inventory"]
+self_modulate = Color(0.878431, 0.878431, 0.878431, 1)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 105.0
+offset_right = 361.0
+offset_bottom = -105.0
+grow_vertical = 2
+texture = ExtResource("2_km2rs")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Resource" type="Panel" parent="Inventory/Inventory/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -299.0
+offset_top = -282.0
+offset_right = 299.0
+offset_bottom = 282.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(302, 304)
+
+[node name="Resources" type="GridContainer" parent="Inventory/Inventory/Panel/Resource"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = 42.0
+offset_right = -34.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="Item" type="Button" parent="Inventory/Inventory/Panel/Resource/Resources"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wsxor")
+theme_override_font_sizes/font_size = 24
+text = "Wood 99"
+icon = ExtResource("3_0aj1e")
+icon_alignment = 1
+vertical_icon_alignment = 0
+script = ExtResource("3_pknrh")
+rsc = ExtResource("4_k6px4")
+
+[node name="Item2" type="Button" parent="Inventory/Inventory/Panel/Resource/Resources"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wsxor")
+theme_override_font_sizes/font_size = 24
+text = "Wood 99"
+icon = ExtResource("3_0aj1e")
+icon_alignment = 1
+vertical_icon_alignment = 0
+script = ExtResource("3_pknrh")
+rsc = ExtResource("5_ji65l")
+
+[node name="Item3" type="Button" parent="Inventory/Inventory/Panel/Resource/Resources"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wsxor")
+theme_override_font_sizes/font_size = 24
+text = "Wood 99"
+icon = ExtResource("3_0aj1e")
+icon_alignment = 1
+vertical_icon_alignment = 0
+script = ExtResource("3_pknrh")
+rsc = ExtResource("6_x3xi8")
+
+[node name="Equip" type="Panel" parent="Inventory/Inventory/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -299.0
+offset_top = -282.0
+offset_right = 299.0
+offset_bottom = 282.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(302, 304)
+
+[node name="Resources" type="GridContainer" parent="Inventory/Inventory/Panel/Equip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = 42.0
+offset_right = -34.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="Equip_button" type="Button" parent="Inventory/Inventory/Panel/Equip/Resources"]
+layout_mode = 2
+icon = ExtResource("22_8dmuy")
+script = ExtResource("23_5bgrn")
+eqp = ExtResource("24_eid4p")
+
+[node name="Equip_button2" type="Button" parent="Inventory/Inventory/Panel/Equip/Resources"]
+layout_mode = 2
+icon = ExtResource("22_8dmuy")
+script = ExtResource("23_5bgrn")
+eqp = ExtResource("25_3j4w4")
+
+[node name="Resources" type="NinePatchRect" parent="Inventory/Inventory"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 71.0
+offset_right = 186.0
+offset_bottom = 131.0
+texture = ExtResource("2_km2rs")
+patch_margin_left = 3
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 3
+
+[node name="ItemSwitch" type="Button" parent="Inventory/Inventory/Resources"]
+layout_mode = 2
+offset_right = 155.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("2_wsxor")
+text = "RESOURCES"
+flat = true
+
+[node name="Equip" type="NinePatchRect" parent="Inventory/Inventory"]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 71.0
+offset_right = 349.0
+offset_bottom = 131.0
+texture = ExtResource("2_km2rs")
+patch_margin_left = 3
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 3
+
+[node name="ItemSwitch" type="Button" parent="Inventory/Inventory/Equip"]
+layout_mode = 2
+offset_right = 155.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("2_wsxor")
+text = "RESOURCES"
+flat = true

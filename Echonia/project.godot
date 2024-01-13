@@ -17,7 +17,7 @@ config/name_localized={
 }
 run/main_scene="res://Scenes/MainMenu.tscn"
 config/use_custom_user_dir=true
-config/custom_user_dir_name="Echonia"
+config/custom_user_dir_name="EchoniaBeta"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/show_image=false
 boot_splash/fullsize=false
@@ -28,7 +28,6 @@ config/icon="res://Sprites/Icon.png"
 
 Equip="*res://Scripts/Equip.gd"
 G="*res://Scripts/GlobalValues.gd"
-SL="*res://Scripts/Save and Load/Snl.tscn"
 
 [display]
 
@@ -39,15 +38,13 @@ mouse_cursor/custom_image="res://Sprites/UI/Cursors/Curs.png"
 
 movie_writer/movie_file="C:/Users/davit/OneDrive/Документы/GamePlay/Exploriabeta.avi"
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/rmsmartshape/plugin.cfg")
-
 [file_customization]
 
 folder_colors={
 "res://Entity/": "yellow",
 "res://Entity/Enemy/": "red",
+"res://Entity/MainCharacter/": "blue",
+"res://Entity/NPC/": "pink",
 "res://Environment/": "orange",
 "res://Environment/Gather/": "green",
 "res://Environment/Gather/Iron/": "blue",
@@ -56,6 +53,10 @@ folder_colors={
 "res://Fonts/": "purple",
 "res://Scenes/": "pink",
 "res://Scripts/": "gray",
+"res://Scripts/Inventory/": "blue",
+"res://Scripts/Inventory/Equip/": "red",
+"res://Scripts/Inventory/PickAxe/": "yellow",
+"res://Sprites/": "purple",
 "res://TileSet/": "green"
 }
 
@@ -150,4 +151,3 @@ locale/translations=PackedStringArray("res://Localization/Localization - Localiz
 [rendering]
 
 textures/vram_compression/import_s3tc_bptc=true
-environment/defaults/default_clear_color=Color(0.0980392, 0.0352941, 0.192157, 1)

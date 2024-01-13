@@ -1,11 +1,23 @@
-[gd_scene load_steps=16 format=3 uid="uid://bxu0ekc3105r0"]
+[gd_scene load_steps=30 format=3 uid="uid://bxu0ekc3105r0"]
 
 [ext_resource type="PackedScene" uid="uid://bk1j3jp70up48" path="res://Entity/entity.tscn" id="1_4ohja"]
 [ext_resource type="Script" path="res://Entity/MainCharacter/player.gd" id="2_ij66v"]
 [ext_resource type="Texture2D" uid="uid://btimcgsfgilu6" path="res://Entity/Sprites/SpriteSheet00.png" id="3_nxyxb"]
 [ext_resource type="Texture2D" uid="uid://cricfphxxssuk" path="res://Scripts/Inventory/PickAxe/Textures/AxeLvl0.png" id="4_ehi7w"]
 [ext_resource type="Texture2D" uid="uid://bln8h2wjekdoc" path="res://Sprites/Shadow.png" id="5_x6sen"]
-[ext_resource type="PackedScene" uid="uid://blwqc5vmmnl7f" path="res://UI/GUI/GUI.tscn" id="7_07t8d"]
+[ext_resource type="PackedScene" uid="uid://blwqc5vmmnl7f" path="res://UI/GUI/inventory.tscn" id="7_07t8d"]
+[ext_resource type="Script" path="res://Entity/MainCharacter/Debug.gd" id="8_4c1je"]
+[ext_resource type="Script" path="res://UI/GUI/HUD.gd" id="8_5jhu0"]
+[ext_resource type="Texture2D" uid="uid://dfv5l358hby5i" path="res://Sprites/UI/UX/bubble.png" id="9_r3jeo"]
+[ext_resource type="Texture2D" uid="uid://fp8wx6dapqor" path="res://Sprites/UI/UX/BuubbleOver.png" id="10_4oopy"]
+[ext_resource type="Texture2D" uid="uid://dk0c7pkiextbh" path="res://Sprites/UI/UX/Health.png" id="11_nk4sj"]
+[ext_resource type="Texture2D" uid="uid://dxyvypptnqpk7" path="res://Sprites/UI/UX/heart.png" id="12_mm5hg"]
+[ext_resource type="FontFile" uid="uid://l4bre1arawpf" path="res://Fonts/pixellari/Pixellari.ttf" id="13_majov"]
+[ext_resource type="FontFile" uid="uid://c7e1n7mxhg6j7" path="res://Fonts/OldTime/Oldtimer.ttf" id="13_pfed4"]
+[ext_resource type="Texture2D" uid="uid://bvdmjgirmvje8" path="res://Sprites/UI/UX/Button.png" id="14_hmhp6"]
+[ext_resource type="Texture2D" uid="uid://bsj3tycc2ys3p" path="res://Sprites/UI/UX/Bag.png" id="15_l74u7"]
+[ext_resource type="Texture2D" uid="uid://dgfhnc82lw7w3" path="res://Scripts/Inventory/Resources/Sprites/Coins.png" id="17_squcj"]
+[ext_resource type="Script" path="res://Scripts/Inventory/ResourceShow.gd" id="18_p5rpb"]
 [ext_resource type="AudioStream" uid="uid://r7tv0ke8sx5" path="res://Sound/Player/Hurt.wav" id="21_02ypo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpx76"]
@@ -910,6 +922,15 @@ _data = {
 "Walk": SubResource("Animation_eiliu")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_jytvs"]
+font = ExtResource("13_pfed4")
+font_size = 34
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qgb4v"]
+font = ExtResource("13_majov")
+
 [node name="Player" instance=ExtResource("1_4ohja")]
 y_sort_enabled = true
 collision_layer = 2
@@ -918,9 +939,7 @@ script = ExtResource("2_ij66v")
 SPEED = 200.0
 metadata/_edit_group_ = true
 
-[node name="UI" parent="." index="0" instance=ExtResource("7_07t8d")]
-
-[node name="Skin" parent="." index="1"]
+[node name="Skin" parent="." index="0"]
 y_sort_enabled = true
 
 [node name="HitBox" type="Area2D" parent="Skin" index="0"]
@@ -1006,12 +1025,12 @@ position = Vector2(0, 50)
 scale = Vector2(2.11564, 2.35194)
 texture = ExtResource("5_x6sen")
 
-[node name="Collision" parent="." index="2"]
+[node name="Collision" parent="." index="1"]
 position = Vector2(0.5, 18)
 shape = SubResource("RectangleShape2D_fu6hk")
 debug_color = Color(0.992157, 0, 0.254902, 0.419608)
 
-[node name="HurtBox" parent="." index="3"]
+[node name="HurtBox" parent="." index="2"]
 position = Vector2(0, -16)
 collision_layer = 4
 collision_mask = 0
@@ -1019,11 +1038,264 @@ collision_mask = 0
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 position = Vector2(3, -1)
 
-[node name="AnimationPlayer" parent="." index="4"]
+[node name="AnimationPlayer" parent="." index="3"]
 libraries = {
 "": SubResource("AnimationLibrary_0fuxh")
 }
 speed_scale = 2.0
+
+[node name="HUD" type="Control" parent="." index="4"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_right = 1150.0
+offset_bottom = 644.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UX" parent="HUD" index="0" groups=["Inventory"] instance=ExtResource("7_07t8d")]
+layout_mode = 1
+offset_left = 298.0
+offset_top = 369.0
+offset_right = 298.0
+offset_bottom = 369.0
+
+[node name="Debug" type="Control" parent="HUD" index="1"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_4c1je")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="HUD/Debug" index="0"]
+visible = false
+
+[node name="FpsText" type="Label" parent="HUD/Debug/CanvasLayer" index="0"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 24
+text = "FPS:"
+
+[node name="TimeScale" type="Label" parent="HUD/Debug/CanvasLayer" index="1"]
+offset_top = 64.0
+offset_right = 71.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 24
+text = "FPS:"
+
+[node name="ArchitetureName" type="Label" parent="HUD/Debug/CanvasLayer" index="2"]
+offset_top = 140.0
+offset_right = 71.0
+offset_bottom = 190.0
+theme_override_font_sizes/font_size = 24
+text = "FPS:"
+
+[node name="MainLoop" type="Label" parent="HUD/Debug/CanvasLayer" index="3"]
+offset_top = 223.0
+offset_right = 71.0
+offset_bottom = 273.0
+theme_override_font_sizes/font_size = 24
+text = "FPS:"
+
+[node name="PhysicsPhrames" type="Label" parent="HUD/Debug/CanvasLayer" index="4"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -71.0
+offset_bottom = 50.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "FPS:"
+horizontal_alignment = 2
+
+[node name="PhysicsInterpolation" type="Label" parent="HUD/Debug/CanvasLayer" index="5"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -71.0
+offset_top = 81.0
+offset_bottom = 131.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "FPS:"
+horizontal_alignment = 2
+
+[node name="ProcceseFrames" type="Label" parent="HUD/Debug/CanvasLayer" index="6"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -71.0
+offset_top = 157.0
+offset_bottom = 207.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "FPS:"
+horizontal_alignment = 2
+
+[node name="VersionInfo" type="Label" parent="HUD/Debug/CanvasLayer" index="7"]
+offset_top = 590.0
+offset_right = 71.0
+offset_bottom = 640.0
+theme_override_font_sizes/font_size = 20
+text = "FPS:"
+vertical_alignment = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="HUD" index="2"]
+
+[node name="HUD" type="Control" parent="HUD/CanvasLayer" index="0"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_right = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_5jhu0")
+
+[node name="HealthBuuble" type="Control" parent="HUD/CanvasLayer/HUD" index="0"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 84.0
+offset_top = -162.0
+offset_right = 520.0
+offset_bottom = -26.0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(15, 119)
+
+[node name="ProgressBar" type="TextureProgressBar" parent="HUD/CanvasLayer/HUD/HealthBuuble" index="0"]
+layout_mode = 0
+offset_right = 144.0
+offset_bottom = 128.0
+value = 76.0
+fill_mode = 5
+texture_under = ExtResource("9_r3jeo")
+texture_over = ExtResource("10_4oopy")
+texture_progress = ExtResource("11_nk4sj")
+
+[node name="TextureRect" type="TextureRect" parent="HUD/CanvasLayer/HUD/HealthBuuble" index="1"]
+self_modulate = Color(0.596078, 0.0901961, 0.192157, 0.756863)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 39.0
+offset_top = 47.0
+offset_right = -351.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.94405, 1.94405)
+pivot_offset = Vector2(20, 21)
+texture = ExtResource("12_mm5hg")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="HUD/CanvasLayer/HUD/HealthBuuble" index="2"]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 47.0
+offset_right = 222.0
+offset_bottom = 79.0
+pivot_offset = Vector2(19, 1)
+text = "75%"
+label_settings = SubResource("LabelSettings_jytvs")
+horizontal_alignment = 1
+
+[node name="Bag" type="Control" parent="HUD/CanvasLayer/HUD" index="1"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1042.0
+offset_top = -106.0
+offset_right = 1082.0
+offset_bottom = -66.0
+grow_vertical = 0
+
+[node name="TextureButton" type="TextureButton" parent="HUD/CanvasLayer/HUD/Bag" index="0"]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 51.0
+texture_normal = ExtResource("14_hmhp6")
+texture_pressed = ExtResource("14_hmhp6")
+texture_hover = ExtResource("14_hmhp6")
+texture_focused = ExtResource("14_hmhp6")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="HUD/CanvasLayer/HUD/Bag/TextureButton" index="0"]
+self_modulate = Color(0, 0, 0, 0.627451)
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 49.0
+offset_bottom = 49.0
+scale = Vector2(0.848835, 0.848835)
+pivot_offset = Vector2(23.5617, 27.096)
+texture = ExtResource("15_l74u7")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="HUD/CanvasLayer/HUD/Bag" index="1"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 54.0
+offset_right = 44.0
+offset_bottom = 89.0
+text = "BAG
+(I)"
+label_settings = SubResource("LabelSettings_qgb4v")
+horizontal_alignment = 1
+
+[node name="Coin" type="Button" parent="HUD/CanvasLayer/HUD" index="2"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 91.0
+offset_top = -182.0
+offset_right = 212.0
+offset_bottom = -110.0
+grow_vertical = 0
+scale = Vector2(0.760788, 0.760788)
+theme_override_fonts/font = ExtResource("13_pfed4")
+theme_override_font_sizes/font_size = 24
+text = "999"
+icon = ExtResource("17_squcj")
+flat = true
+script = ExtResource("18_p5rpb")
+
+[node name="Button" type="Button" parent="HUD/CanvasLayer" index="1"]
+visible = false
+offset_left = 16.0
+offset_top = 166.0
+offset_right = 60.0
+offset_bottom = 197.0
+text = "Save"
+
+[node name="Button2" type="Button" parent="HUD/CanvasLayer" index="2"]
+visible = false
+offset_left = 16.0
+offset_top = 216.0
+offset_right = 60.0
+offset_bottom = 247.0
+text = "Load"
+
+[node name="Handle" type="Button" parent="HUD/CanvasLayer" index="3"]
+offset_left = 25.0
+offset_top = 475.0
+offset_right = 134.0
+offset_bottom = 724.0
+scale = Vector2(0.540296, 0.532519)
+theme_override_fonts/font = ExtResource("13_pfed4")
+theme_override_font_sizes/font_size = 24
+text = "[TAB]"
+icon = ExtResource("4_ehi7w")
+icon_alignment = 1
+vertical_icon_alignment = 0
 
 [node name="PlayerAudio" type="AudioStreamPlayer2D" parent="." index="5"]
 stream = ExtResource("21_02ypo")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Equip_item" load_steps=3 format=3 uid="uid://cxptoer1gf6nt"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/EquipData.gd" id="1_olvyt"]
+[ext_resource type="Texture2D" uid="uid://c00oto211lj22" path="res://Scripts/Inventory/Equip/Sword/Texture/slice10.png" id="2_b7s0f"]
+
+[resource]
+script = ExtResource("1_olvyt")
+equip_type = 0
+equip = "Sword"
+damage_strenght = 2.0
+sprite = ExtResource("2_b7s0f")
+attack_speed = 1.0
+earned = true

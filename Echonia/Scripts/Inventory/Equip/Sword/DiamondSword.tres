@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Equip_item" load_steps=3 format=3 uid="uid://cdmgsn8vcd67o"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/EquipData.gd" id="1_j6x2j"]
+[ext_resource type="Texture2D" uid="uid://c7jci1pv0knbm" path="res://Scripts/Inventory/Equip/Sword/Texture/slice12.png" id="2_7p4bf"]
+
+[resource]
+script = ExtResource("1_j6x2j")
+equip_type = 0
+equip = "CopperCube"
+damage_strenght = 3.5
+sprite = ExtResource("2_7p4bf")
+attack_speed = 1.0

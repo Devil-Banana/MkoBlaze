@@ -1,8 +1,8 @@
 [gd_scene load_steps=20 format=3 uid="uid://rmflbwcbcwtt"]
 
 [ext_resource type="Script" path="res://Entity/Enemy/Zombie/enm_Zombie.tres.gd" id="1_pt7f0"]
-[ext_resource type="Texture2D" uid="uid://btimcgsfgilu6" path="res://Entity/Sprites/Concepto.png" id="2_2i7g1"]
 [ext_resource type="Resource" uid="uid://c42ng2n2galhd" path="res://Scripts/Inventory/Resources/Coin.tres" id="2_foixc"]
+[ext_resource type="Texture2D" uid="uid://btimcgsfgilu6" path="res://Entity/Sprites/SpriteSheet00.png" id="3_cy2iy"]
 [ext_resource type="Texture2D" uid="uid://2f524l8riqfn" path="res://Sprites/Blood.png" id="3_v2kl6"]
 [ext_resource type="Texture2D" uid="uid://dgfhnc82lw7w3" path="res://Scripts/Inventory/Resources/Sprites/Coins.png" id="5_52nhx"]
 [ext_resource type="AudioStream" uid="uid://cgof5my72oye1" path="res://Sound/Coins/Take.wav" id="6_p4qdl"]
@@ -880,20 +880,20 @@ shape = SubResource("CircleShape2D_bkxgo")
 y_sort_enabled = true
 
 [node name="Body" type="Sprite2D" parent="Skin"]
-texture = ExtResource("2_2i7g1")
+texture = ExtResource("3_cy2iy")
 region_enabled = true
 region_rect = Rect2(840, 157, 67, 52)
 
 [node name="Head" type="Sprite2D" parent="Skin/Body"]
 position = Vector2(0, -14)
-texture = ExtResource("2_2i7g1")
+texture = ExtResource("3_cy2iy")
 offset = Vector2(0, -44)
 region_enabled = true
 region_rect = Rect2(817, 56, 127, 92)
 
 [node name="LeftLeg" type="Sprite2D" parent="Skin/Body"]
 position = Vector2(-18, 19)
-texture = ExtResource("2_2i7g1")
+texture = ExtResource("3_cy2iy")
 offset = Vector2(0, 19)
 region_enabled = true
 region_rect = Rect2(840, 274, 30, 46)
@@ -901,7 +901,7 @@ region_rect = Rect2(840, 274, 30, 46)
 [node name="RightLeg" type="Sprite2D" parent="Skin/Body"]
 z_index = -1
 position = Vector2(18, 18)
-texture = ExtResource("2_2i7g1")
+texture = ExtResource("3_cy2iy")
 offset = Vector2(0, 19)
 region_enabled = true
 region_rect = Rect2(877, 274, 29, 45)
@@ -909,14 +909,14 @@ region_rect = Rect2(877, 274, 29, 45)
 [node name="RightHand" type="Sprite2D" parent="Skin/Body"]
 z_index = -1
 position = Vector2(28, -14)
-texture = ExtResource("2_2i7g1")
+texture = ExtResource("3_cy2iy")
 offset = Vector2(5, 16)
 region_enabled = true
 region_rect = Rect2(882, 217, 24, 46)
 
 [node name="LeftHand" type="Sprite2D" parent="Skin/Body"]
 position = Vector2(-33, -14)
-texture = ExtResource("2_2i7g1")
+texture = ExtResource("3_cy2iy")
 offset = Vector2(-4, 17)
 region_enabled = true
 region_rect = Rect2(840, 217, 24, 46)

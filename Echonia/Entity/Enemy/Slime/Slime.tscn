@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Entity/Enemy/Slime/Slime.gd" id="1_vt5ga"]
 [ext_resource type="Texture2D" uid="uid://cy017jhy38apb" path="res://Sprites/Slime.png" id="2_lke2n"]
-[ext_resource type="Texture2D" uid="uid://btimcgsfgilu6" path="res://Entity/Sprites/Concepto.png" id="3_towlw"]
+[ext_resource type="Texture2D" uid="uid://btimcgsfgilu6" path="res://Entity/Sprites/SpriteSheet00.png" id="3_towlw"]
 [ext_resource type="Texture2D" uid="uid://bln8h2wjekdoc" path="res://Sprites/Shadow.png" id="4_t2jc4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6d6k8"]

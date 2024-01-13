@@ -1,4 +1,4 @@
 extends Node
 
 
-var saveSlot = 0
+var saveSlot = 1
